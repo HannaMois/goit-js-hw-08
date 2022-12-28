@@ -11,6 +11,8 @@ const refs = {
 refs.form.addEventListener('input', throttle(onFormInput, 500));
 refs.form.addEventListener('submit', onFormSubmit);
 
+dataFromLocalStorage();
+
 function onFormInput() {
     const formData = JSON.stringify({email: refs.email.value, message: refs.message.value})
     localStorage.setItem(LOCALSTORAGE_KEY, formData);
@@ -19,8 +21,8 @@ function onFormInput() {
 function onFormSubmit(evt) {
     evt.preventDefault();
 
-    if (evt.target.email.value === '' ||
-        evt.target.message.value === '') {
+    if (!evt.target.email.value === '' ||
+        !evt.target.message.value === '') {
             alert('Заповніть поля форми!');
             return;
     }
