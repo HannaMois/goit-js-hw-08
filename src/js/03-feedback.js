@@ -34,7 +34,7 @@ function onFormSubmit(evt) {
 function dataFromLocalStorage() {
     const data = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
      if (data) {
-      email.value = data.email;
-      message.value = data.message;
+      refs.email.value = data.email;
+      refs.message.value = data.message;
     }
 }
